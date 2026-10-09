@@ -16,6 +16,20 @@ Start a new session and it is on. Nothing to set up.
 
 Needs Claude Code 2.1.287 or later (2.1.286 in the desktop app). Built and tested on 2.1.296.
 
+## What it looks like in Claude desktop
+
+Real screenshots from a live session, with the chat covered up. The side panel is Spotter; the bar
+above the prompt is Spotter too.
+
+![Claude desktop with the Spotter panel open: six helpers, one knocked out, and the progress bar at step 2 of 4](art/desktop.png)
+
+<p>
+  <img src="art/panel-growing.png" width="46%" alt="The panel early in a job: one Pal finished, one still an egg, four growing">
+  <img src="art/panel-done.png" width="46%" alt="The same panel at the end: five Pals at four stars and one knocked out">
+</p>
+
+Left: half a minute in, with one helper still an egg. Right: the same job finished.
+
 ## Every helper gets a Pal
 
 When Claude sends a helper agent off to do something, Spotter gives it a Pal picked by the job:
