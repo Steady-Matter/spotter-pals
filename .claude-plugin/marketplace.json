@@ -1,0 +1,15 @@
+{
+  "name": "spotter-pals",
+  "description": "Spotter: a Claude Code dashboard with pixel Pals that hatch and grow as your helper agents work.",
+  "owner": {
+    "name": "Steady Matter",
+    "url": "https://github.com/Steady-Matter"
+  },
+  "plugins": [
+    {
+      "name": "spotter",
+      "source": "./",
+      "description": "A progress bar above the prompt, a row per helper agent with a pixel Pal that hatches and grows, and a headline for the last reply."
+    }
+  ]
+}

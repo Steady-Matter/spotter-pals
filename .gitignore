@@ -1,0 +1,3 @@
+.DS_Store
+# Claude Code writes these type files when the mod loads.
+.claude-plugin/types/

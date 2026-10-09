@@ -1,0 +1,39 @@
+{
+  "name": "spotter",
+  "version": "1.0.0",
+  "description": "Spotter: a Claude Code dashboard by Steady Matter. It watches the work and counts the steps. A progress bar above the prompt, a row per helper agent with a pixel Pal that hatches and grows as the agent works, and a headline for the last reply. Built on Flightdeck by Stephen Casella (MIT); the bar's look is adapted from savvy-progress by johnnyvizz. The Pals are unofficial Palworld fan art, not affiliated with Pocketpair.",
+  "author": {
+    "name": "Steady Matter",
+    "url": "https://github.com/Steady-Matter"
+  },
+  "license": "MIT",
+  "keywords": [
+    "claude-code",
+    "claude-code-mod",
+    "claude-code-plugin",
+    "dashboard",
+    "subagents",
+    "agents",
+    "observability",
+    "tui"
+  ],
+  "types": "./types/index.d.ts",
+  "userConfig": {
+    "motion": {
+      "title": "Motion",
+      "description": "Let the Pals hop while their agent works, or keep them still",
+      "type": "string",
+      "options": [
+        "while-active",
+        "off"
+      ],
+      "default": "while-active"
+    },
+    "openOnStart": {
+      "title": "Open on start",
+      "description": "Open the pane when a session starts",
+      "type": "boolean",
+      "default": true
+    }
+  }
+}
