@@ -10,7 +10,7 @@ in the terminal.
 
 ## Install
 
-    claude plugin install spotter --marketplace swhite1122/spotter-pals
+    claude plugin install spotter --marketplace Steady-Matter/spotter-pals
 
 Start a new session and it is on. Nothing to set up.
 
