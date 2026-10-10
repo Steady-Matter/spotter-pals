@@ -305,7 +305,6 @@ export const register: Register = (on, options) => {
     const pct = u?.context.percent
     const limits = u?.rateLimits ?? []
     const hasSession = pct !== undefined || limits.length > 0 || m.lastRequestAt > 0 || hasReceipt
-    const nothingYet = cards.length === 0 && !hasSession ? <Text color={C.faint}>Nothing to show yet.</Text> : null
 
     const clock = clockOf(els, now)
 
@@ -603,9 +602,14 @@ export const register: Register = (on, options) => {
     return (
       <Box flexDirection="column" width={W}>
         {hasSession ? sessionPanel(W) : null}
-        {cards.length > 0 ? agentsPanel(W) : null}
+        {cards.length > 0 ? (
+          agentsPanel(W)
+        ) : (
+          <Text color={C.faint} wrap="wrap">
+            No helpers yet. A Pal hatches here when Claude sends one out.
+          </Text>
+        )}
         {expandedPanel(W)}
-        {nothingYet}
       </Box>
     )
   })

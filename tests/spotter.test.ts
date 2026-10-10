@@ -124,7 +124,7 @@ test('a fresh session draws on every surface and width with nothing to show', as
   for (const surface of ['terminal', 'desktop', 'vscode', 'mobile'] as const) {
     for (const cols of [40, 60, 86, 120]) {
       const ui = await $.ui.mount({ ...pane(cols), surface })
-      expect(await ui.find({ text: /Nothing to show yet/ })).toBeDefined()
+      expect(await ui.find({ text: /No helpers yet/ })).toBeDefined()
       expect(await ui.find({ text: /agents ·/ })).toBeUndefined()
       await ui.unmount()
     }
@@ -139,7 +139,7 @@ test('every helper gets a row, whatever its type is called', async ($, on) => {
   for (const placement of ['dock', 'inline'] as const) {
     const ui = await $.ui.mount({ ...pane(80), props: { ...pane(80).props, placement }, surface: 'terminal' })
     expect(await ui.find({ text: /final review/ })).toBeDefined()
-    expect(await ui.find({ text: /Nothing to show yet/ })).toBeUndefined()
+    expect(await ui.find({ text: /No helpers yet/ })).toBeUndefined()
     await ui.unmount()
   }
 })
@@ -520,7 +520,8 @@ test('the session box shows context, limits and the cache at the top of the dock
     expect(await ui.find({ text: /^5-hour limit$/ })).toBeDefined()
     expect(await ui.find({ text: /^12% used$/ })).toBeDefined()
     expect(await ui.find({ text: /^Cache$/ })).toBeDefined()
-    expect(await ui.find({ text: /Nothing to show yet/ })).toBeUndefined()
+    // A session with no helpers says so under the box instead of leaving the pane blank.
+    expect(await ui.find({ text: /No helpers yet/ })).toBeDefined()
     await ui.unmount()
   }
 })
