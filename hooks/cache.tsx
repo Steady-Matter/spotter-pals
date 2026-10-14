@@ -22,7 +22,7 @@ const Cache: ClientModule<Props, State> = (props, surface) => {
     })
   }
   const min = Math.ceil(ref.left / 60_000)
-  if (min <= 0) return <Text color={props.cold}>cold · next message re-reads it all</Text>
+  if (min <= 0) return <Text color={props.cold} wrap="wrap">cold · next message re-reads it all</Text>
   return (
     <Text color={min <= 10 ? props.soon : props.plain} wrap="truncate">
       {`warm · ~${min} min left`}

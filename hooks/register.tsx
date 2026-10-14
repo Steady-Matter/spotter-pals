@@ -562,7 +562,7 @@ export const register: Register = (on, options) => {
                 hasClient ? (
                   <els.Client key="cache-clock" module="./cache.tsx" props={{ expiresAt: m.lastRequestAt + m.cacheTtlMs, now, ...cacheColor }} />
                 ) : (
-                  <Text color={cacheColor[cache.tone]} wrap="truncate">
+                  <Text color={cacheColor[cache.tone]} wrap="wrap">
                     {cache.text}
                   </Text>
                 ),
