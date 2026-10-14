@@ -30,6 +30,9 @@ above the prompt is Spotter too.
 
 Left: half a minute in, with one helper still an egg. Right: the same job finished.
 
+Tip: close the app's own session panel (the one with the computer, folder, context and connectors) and
+let Spotter have the side. Spotter shows the context too, plus your limits, the cache and every helper.
+
 ## Every helper gets a Pal
 
 When Claude sends a helper agent off to do something, Spotter gives it a Pal picked by the job:

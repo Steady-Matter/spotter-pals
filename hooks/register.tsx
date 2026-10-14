@@ -513,7 +513,10 @@ export const register: Register = (on, options) => {
         <Box width={e.surface === 'terminal' ? 14 : 10} flexShrink={0}>
           <Text dimColor>{label}</Text>
         </Box>
-        {value}
+        {/* minWidth 0 lets the value narrow to the box, so a long one wraps instead of spilling past the border. */}
+        <Box flexGrow={1} flexShrink={1} minWidth={0}>
+          {value}
+        </Box>
       </Box>
     )
     // The reply under way, or the last one: only the counts that are not zero.
