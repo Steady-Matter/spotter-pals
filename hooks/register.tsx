@@ -397,11 +397,12 @@ export const register: Register = (on, options) => {
                   alignItems="center"
                 >
                   <Box flexShrink={0}>{spriteOf(c, w >= 40 ? 1.6 : 1, true)}</Box>
-                  <Box flexDirection="column" flexGrow={1}>
+                  {/* minWidth 0 keeps every line inside the card: the left words shorten so the clock and model stay in. */}
+                  <Box flexDirection="column" flexGrow={1} flexShrink={1} minWidth={0}>
                     <Button key={`card-${c.id}`} plain hotkey={String(i + 1)} label={first} onPress={expandOnPress(c.id)} />
                     {rest ? <Text wrap="truncate">{rest}</Text> : null}
                     <Box justifyContent="space-between">
-                      {palLine(c, true)}
+                      <Box flexShrink={1} minWidth={0}>{palLine(c, true)}</Box>
                       <Box flexShrink={0}>
                         <Text color={c.lastStop === 'max_tokens' ? C.warn : statusColor(c)}>{`${glyph(c)} `}</Text>
                         {clock(`stack-clock-${c.id}`, c.spawnedAt, c.endedAt, C.dim)}
@@ -409,7 +410,7 @@ export const register: Register = (on, options) => {
                     </Box>
                     {/* Its steps on the left, the model it runs on at the right. */}
                     <Box justifyContent="space-between">
-                      {stepsRow({ ...c, stepNote: '' }, w - 14)}
+                      <Box flexShrink={1} minWidth={0}>{stepsRow({ ...c, stepNote: '' }, w - 14)}</Box>
                       {c.model ? (
                         <Box flexShrink={0} marginLeft={1}>
                           <Text color={C.dim}>{prettyModel(c.model)}</Text>

@@ -82,6 +82,7 @@ test('layout math and labels: lanes share one axis, models and titles read short
   expect(receiptOf({ ...DEFAULT_TURN, costAtStart: 5 }, { durationMs: 1, agentsSince: 0, costNow: 5, reason: 'answer' }).costDelta).toBe(null)
   expect(titleLines('Write tinyqueue test suite', 13, 16)).toEqual(['Write', 'tinyqueue test…'])
   expect(titleLines('Short', 13, 16)).toEqual(['Short', ''])
+  expect(titleLines('read:projects-mods-maint-usage', 23, 27)).toEqual(['read:projects-mods-', 'maint-usage'])
   expect(receiptOf({ ...DEFAULT_TURN, costAtStart: 1, edits: 2 }, { durationMs: 1000, agentsSince: 3, costNow: 1.5, reason: 'answer' }).costDelta).toBe(0.5)
 })
 

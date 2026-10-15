@@ -242,8 +242,10 @@ export const cardTitle = (c: AgentCard) => c.description || c.type
 export const titleLines = (title: string, first: number, rest: number): [string, string] => {
   const t = title.replace(/\s+/g, ' ').trim()
   if (t.length <= first) return [t, '']
-  const cut = t.lastIndexOf(' ', first)
-  const at = cut > 0 ? cut : first
+  // Break at a space, or else just after a - : / or _, so a name like read:projects-mods is not cut mid-word.
+  const space = t.lastIndexOf(' ', first)
+  const mark = Math.max(...['-', ':', '/', '_'].map(m => t.lastIndexOf(m, first - 1) + 1))
+  const at = space > 0 ? space : mark > 1 ? mark : first
   return [t.slice(0, at).trim(), shorten(t.slice(at), rest)]
 }
 
