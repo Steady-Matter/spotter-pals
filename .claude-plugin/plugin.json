@@ -1,6 +1,6 @@
 {
   "name": "spotter",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Spotter: a Claude Code dashboard by Steady Matter. It watches the work and counts the steps. A progress bar above the prompt, a row per helper agent with a pixel Pal that hatches and grows as the agent works, and a headline for the last reply. Built on Flightdeck by Stephen Casella (MIT); the bar's look is adapted from savvy-progress by johnnyvizz. The Pals are unofficial Palworld fan art, not affiliated with Pocketpair.",
   "author": {
     "name": "Steady Matter",

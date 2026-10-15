@@ -167,6 +167,13 @@ export const register: Register = (on, options) => {
       })
       .catch(() => undefined)
     // The terminal gets the strip above the prompt; its side panel opens on /spotter only.
+    // A new chat in the app often has nothing attached yet: opening then printed a no-surface
+    // line in the chat, so the panel waits for the app to attach (session.attach below).
+    if (cfg.openOnStart && e.surface !== 'terminal' && (await $.session.surfaces()).length > 0) void openPane($).catch(() => undefined)
+    return next(e)
+  })
+
+  on('session.attach', async ($, e, next) => {
     if (cfg.openOnStart && e.surface !== 'terminal') void openPane($).catch(() => undefined)
     return next(e)
   })

@@ -585,9 +585,18 @@ test('the side panel opens by itself in the desktop app, not in the terminal', a
     return { value: { isPlaced: true } } as never
   })
   on('session.start', (_$, e) => ({ cwd: e.cwd }) as never)
+  on('session.attach', (_$, e) => ({ clientId: e.clientId }) as never)
   on('command.register', () => ({ value: undefined }) as never)
+  let attached: string[] = []
+  on('session.surfaces', () => ({ value: attached }) as never)
   await $.session.start({ cwd: '/x', surface: 'terminal' } as never)
   expect(opened).toEqual([])
+  // A new chat in the app: nothing attached yet, so it waits instead of printing a no-surface line.
   await $.session.start({ cwd: '/x', surface: 'desktop' } as never)
+  expect(opened).toEqual([])
+  await $.session.attach({ surface: 'desktop', clientId: 'c1' } as never)
   expect(opened).toEqual(['spotter'])
+  attached = ['desktop']
+  await $.session.start({ cwd: '/x', surface: 'desktop' } as never)
+  expect(opened).toEqual(['spotter', 'spotter'])
 })
